@@ -1,104 +1,141 @@
-Operating Systems Algorithm Simulators in C
+Operating Systems Kernel Algorithm Simulator
 
-This repository contains C-based simulators for three fundamental components of operating systems: CPU Scheduling, Disk Scheduling, and Memory Management. These programs were developed to implement, visualize, and analyze the performance of various core algorithms that are crucial for OS efficiency and resource management.
+<p align="center">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/Language-C-blue.svg" alt="Language C">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/Platform-OS%2520Independent-green.svg" alt="Platform OS Independent">
+<img src="https://www.google.com/search?q=https://img.shields.io/badge/Status-Complete-brightgreen.svg" alt="Status Complete">
+</p>
 
-🚀 Features
+A comprehensive, C-based collection of simulators designed to implement, analyze, and visualize the core logic of fundamental Operating Systems algorithms. This project explores the trade-offs and performance of various strategies across three critical domains of OS management.
 
-Triple Simulators: Includes separate implementations for CPU Scheduling, Disk Scheduling, and Page Replacement algorithms.
+🚀 Core Simulation Modules
 
-Wide Range of Algorithms: Covers a comprehensive suite of over a dozen classic OS algorithms.
+This project is divided into three distinct modules, each focusing on a key area of Operating Systems theory.
 
-Performance Analysis: Calculates and displays key performance metrics for each simulator (e.g., Turnaround Time, Total Head Movement, Page Faults).
+🧠 1. CPU Scheduling
 
-Varied Input Handling:
+Analyzes how processes are assigned to the CPU. The goal is to maximize throughput and minimize response time. The simulator uses randomized inputs to model realistic, dynamic workloads.
 
-The CPU Scheduler uses randomized inputs to simulate realistic workloads.
+Algorithm Implemented
 
-The Disk Scheduler and Memory Management simulators use hardcoded request queues for consistent testing and direct comparison between algorithms.
+Type
 
-Efficient C Implementation: Utilizes fundamental C concepts like pointers, dynamic memory allocation, and data structures.
+Description
 
-🧠 Part 1: CPU Scheduling Simulator
+First-Come, First-Served
 
-This simulator demonstrates strategies for managing process execution on the CPU to optimize utilization and minimize wait times.
+Non-Preemptive
 
-Algorithms Implemented:
+Executes processes in strict arrival order.
 
-First-Come, First-Served (FCFS)
+Shortest Job First
 
-Shortest Job First (SJF)
+Non-Preemptive
 
-Shortest Remaining Time First (SRTF)
+Prioritizes the process with the smallest execution time.
 
-Round Robin (RR)
+Shortest Remaining Time First
 
-Multilevel Feedback Queue: A complex scheduling algorithm that uses multiple queues with different priority levels and scheduling policies, allowing processes to move between queues.
+Preemptive
 
-Performance Metrics Calculated:
+A preemptive version of SJF; switches to a new process if it has less remaining time.
 
-Completion Time (CT), Turnaround Time (TAT), Waiting Time (WT)
+Round Robin
 
-💿 Part 2: Disk Scheduling Simulator
+Preemptive
 
-This simulator demonstrates how to optimize the movement of a disk's read/write head to reduce seek time and improve I/O performance.
+Assigns a fixed time-slice (quantum) to each process in a circular queue.
 
-Algorithms Implemented:
+Multilevel Feedback Queue
 
-First-Come, First-Served (FCFS)
+Preemptive
 
-Shortest Seek Time First (SSTF)
+A complex algorithm using multiple queues with varying priorities and time slices.
 
-SCAN (Elevator Algorithm)
+Key Metric: Average Turnaround Time & Average Waiting Time
+
+💾 2. Memory Management (Page Replacement)
+
+Simulates virtual memory by modeling how the OS swaps pages between RAM and disk. The goal is to minimize page faults.
+
+Algorithm Implemented
+
+Description
+
+First-In, First-Out (FIFO)
+
+Replaces the oldest page that was brought into memory.
+
+Least Recently Used (LRU)
+
+Replaces the page that has gone the longest without being referenced.
+
+Optimal (OPT)
+
+Replaces the page that will not be used for the longest time in the future (theoretical benchmark).
+
+Key Metric: Total Page Faults
+
+💿 3. Disk Scheduling
+
+Models how the disk's read/write head moves to fulfill I/O requests. The primary goal is to minimize the total seek time.
+
+Algorithm Implemented
+
+Description
+
+First-Come, First-Served
+
+Services requests in the order they are received.
+
+Shortest Seek Time First
+
+Services the request closest to the current head position.
+
+SCAN (Elevator)
+
+Moves in one direction servicing all requests, then reverses.
 
 C-SCAN (Circular SCAN)
 
+Like SCAN, but jumps back to the beginning after reaching the end.
+
 LOOK & C-LOOK
 
-Performance Metric Calculated:
+Optimizations of SCAN/C-SCAN that only travel to the last request in a direction.
 
-Total Head Movement
+Key Metric: Total Head Movement
 
-💾 Part 3: Memory Management (Page Replacement) Simulator
-
-This simulator demonstrates virtual memory management techniques by implementing page replacement algorithms. The goal is to minimize the number of page faults when a process requests a page that is not in memory.
-
-Algorithms Implemented:
-
-First-In, First-Out (FIFO): Replaces the oldest page in memory.
-
-Least Recently Used (LRU): Replaces the page that has not been used for the longest period.
-
-Optimal (OPT): Replaces the page that will not be used for the longest period in the future (serves as a theoretical benchmark).
-
-Performance Metric Calculated:
-
-Total Page Faults
-
-🛠️ How to Use
+🛠️ How to Compile and Run
 
 Prerequisites
 
-You need a C compiler, such as GCC, installed on your system.
+A C compiler (like GCC) must be installed.
 
-Compilation and Execution
+git for cloning the repository.
 
-Clone the repository.
+Steps
 
-Navigate to the project directory in your terminal.
+Clone the repository:
 
-Compile the desired C file:
+git clone [https://github.com/HarshithSuda/CPU-Scheduling-Algorithms.git](https://github.com/HarshithSuda/CPU-Scheduling-Algorithms.git)
+cd CPU-Scheduling-Algorithms
 
-gcc SRTF.c -o srtf_scheduler
 
-gcc Disk_Scheduling.c -o disk_scheduler
+Compile the desired simulator:
+Each module is in its own file. Compile the one you wish to run.
 
-gcc LRU_Memory.c -o lru_memory
+# Example for the Disk Scheduling module
+gcc Disk_Scheduling.c -o disk_sim
+
+# Example for a CPU Scheduling algorithm
+gcc Round_Robin.c -o rr_sim
+
 
 Run the executable:
 
-./srtf_scheduler
+./disk_sim
 
-./disk_scheduler
 
-./lru_memory
+The program will output the performance metrics directly to the console.
 `
