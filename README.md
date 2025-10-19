@@ -1,1 +1,63 @@
-# CPU-Scheduling-Algorithms
+# CPU Scheduling Algorithm Simulator in C
+
+This project provides C implementations of several fundamental CPU scheduling algorithms used in operating systems. The simulator is designed to demonstrate how different scheduling strategies manage processes to optimize CPU utilization and minimize waiting times.
+
+This project was created to solidify the understanding of core operating system concepts, C programming with dynamic memory management, and algorithm analysis.
+
+---
+
+## 🚀 Features
+
+* **Four Core Algorithms:** Implements a suite of classic scheduling algorithms.
+* **Randomized Workload Simulation:** Automatically generates **randomized arrival times and burst times** for each process, allowing for the testing and analysis of algorithms under varied and unpredictable conditions.
+* **Performance Metrics:** Calculates and displays key metrics for each process:
+    * Completion Time (CT)
+    * Turnaround Time (TAT)
+    * Waiting Time (WT)
+* **Dynamic Memory Management:** Utilizes dynamic memory allocation to handle a variable number of processes.
+
+---
+
+## 🧠 Algorithms Implemented
+
+This simulator includes the following algorithms:
+
+### 1. First-Come, First-Served (FCFS)
+* **File:** `FIFO.c`
+* **Description:** A non-preemptive algorithm where processes are executed in the order they arrive in the ready queue.
+
+### 2. Shortest Job First (SJF)
+* **File:** `SJF.c`
+* **Description:** A non-preemptive algorithm that selects the waiting process with the smallest burst time for execution.
+
+### 3. Shortest Remaining Time First (SRTF)
+* **File:** `SRTF.c`
+* **Description:** The preemptive version of SJF. The scheduler always chooses the process that has the shortest remaining burst time.
+
+### 4. Round Robin (RR)
+* **File:** `Round_Robin.c`
+* **Description:** A preemptive algorithm designed for time-sharing systems where each process is assigned a fixed time slice (quantum) to run.
+
+---
+
+## 🛠️ How to Use
+
+### Prerequisites
+You need a C compiler, such as **GCC**, installed on your system.
+
+### Compilation and Execution
+1.  Clone or download the repository to your local machine.
+2.  Open your terminal and navigate to the project directory.
+3.  Compile the C file for the algorithm you want to run. For example, to compile SRTF:
+    ```bash
+    gcc SRTF.c -o srtf
+    ```
+4.  Run the compiled executable:
+    ```bash
+    ./srtf
+    ```
+5.  The program will prompt you to enter the number of processes you want to simulate.
+    ```
+    enter the number of processes : 5
+    ```
+6.  The simulator will then display the scheduling results for each process.
