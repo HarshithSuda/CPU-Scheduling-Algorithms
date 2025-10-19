@@ -140,4 +140,3 @@ Total Head Movement: 208 Cylinders
 
 ---
 
-Would you like me to make it **GitHub-Markdown optimized with collapsible sections** (like `<details>` tags for algorithms and run instructions) for a cleaner professional appearance?
