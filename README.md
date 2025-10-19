@@ -1,6 +1,4 @@
-Here’s a **clean, professional, and visually appealing version** of your README file — formatted with **emojis, badges, sections, code styling, and clear typography** to make it look like a top GitHub project 👇
 
----
 
 # 🧩 Operating Systems Kernel Algorithm Simulator
 
