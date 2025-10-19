@@ -1,63 +1,104 @@
-# CPU Scheduling Algorithm Simulator in C
+Operating Systems Algorithm Simulators in C
 
-This project provides C implementations of several fundamental CPU scheduling algorithms used in operating systems. The simulator is designed to demonstrate how different scheduling strategies manage processes to optimize CPU utilization and minimize waiting times.
+This repository contains C-based simulators for three fundamental components of operating systems: CPU Scheduling, Disk Scheduling, and Memory Management. These programs were developed to implement, visualize, and analyze the performance of various core algorithms that are crucial for OS efficiency and resource management.
 
-This project was created to solidify the understanding of core operating system concepts, C programming with dynamic memory management, and algorithm analysis.
+🚀 Features
 
----
+Triple Simulators: Includes separate implementations for CPU Scheduling, Disk Scheduling, and Page Replacement algorithms.
 
-## 🚀 Features
+Wide Range of Algorithms: Covers a comprehensive suite of over a dozen classic OS algorithms.
 
-* **Four Core Algorithms:** Implements a suite of classic scheduling algorithms.
-* **Randomized Workload Simulation:** Automatically generates **randomized arrival times and burst times** for each process, allowing for the testing and analysis of algorithms under varied and unpredictable conditions.
-* **Performance Metrics:** Calculates and displays key metrics for each process:
-    * Completion Time (CT)
-    * Turnaround Time (TAT)
-    * Waiting Time (WT)
-* **Dynamic Memory Management:** Utilizes dynamic memory allocation to handle a variable number of processes.
+Performance Analysis: Calculates and displays key performance metrics for each simulator (e.g., Turnaround Time, Total Head Movement, Page Faults).
 
----
+Varied Input Handling:
 
-## 🧠 Algorithms Implemented
+The CPU Scheduler uses randomized inputs to simulate realistic workloads.
 
-This simulator includes the following algorithms:
+The Disk Scheduler and Memory Management simulators use hardcoded request queues for consistent testing and direct comparison between algorithms.
 
-### 1. First-Come, First-Served (FCFS)
-* **File:** `FIFO.c`
-* **Description:** A non-preemptive algorithm where processes are executed in the order they arrive in the ready queue.
+Efficient C Implementation: Utilizes fundamental C concepts like pointers, dynamic memory allocation, and data structures.
 
-### 2. Shortest Job First (SJF)
-* **File:** `SJF.c`
-* **Description:** A non-preemptive algorithm that selects the waiting process with the smallest burst time for execution.
+🧠 Part 1: CPU Scheduling Simulator
 
-### 3. Shortest Remaining Time First (SRTF)
-* **File:** `SRTF.c`
-* **Description:** The preemptive version of SJF. The scheduler always chooses the process that has the shortest remaining burst time.
+This simulator demonstrates strategies for managing process execution on the CPU to optimize utilization and minimize wait times.
 
-### 4. Round Robin (RR)
-* **File:** `Round_Robin.c`
-* **Description:** A preemptive algorithm designed for time-sharing systems where each process is assigned a fixed time slice (quantum) to run.
+Algorithms Implemented:
 
----
+First-Come, First-Served (FCFS)
 
-## 🛠️ How to Use
+Shortest Job First (SJF)
 
-### Prerequisites
-You need a C compiler, such as **GCC**, installed on your system.
+Shortest Remaining Time First (SRTF)
 
-### Compilation and Execution
-1.  Clone or download the repository to your local machine.
-2.  Open your terminal and navigate to the project directory.
-3.  Compile the C file for the algorithm you want to run. For example, to compile SRTF:
-    ```bash
-    gcc SRTF.c -o srtf
-    ```
-4.  Run the compiled executable:
-    ```bash
-    ./srtf
-    ```
-5.  The program will prompt you to enter the number of processes you want to simulate.
-    ```
-    enter the number of processes : 5
-    ```
-6.  The simulator will then display the scheduling results for each process.
+Round Robin (RR)
+
+Multilevel Feedback Queue: A complex scheduling algorithm that uses multiple queues with different priority levels and scheduling policies, allowing processes to move between queues.
+
+Performance Metrics Calculated:
+
+Completion Time (CT), Turnaround Time (TAT), Waiting Time (WT)
+
+💿 Part 2: Disk Scheduling Simulator
+
+This simulator demonstrates how to optimize the movement of a disk's read/write head to reduce seek time and improve I/O performance.
+
+Algorithms Implemented:
+
+First-Come, First-Served (FCFS)
+
+Shortest Seek Time First (SSTF)
+
+SCAN (Elevator Algorithm)
+
+C-SCAN (Circular SCAN)
+
+LOOK & C-LOOK
+
+Performance Metric Calculated:
+
+Total Head Movement
+
+💾 Part 3: Memory Management (Page Replacement) Simulator
+
+This simulator demonstrates virtual memory management techniques by implementing page replacement algorithms. The goal is to minimize the number of page faults when a process requests a page that is not in memory.
+
+Algorithms Implemented:
+
+First-In, First-Out (FIFO): Replaces the oldest page in memory.
+
+Least Recently Used (LRU): Replaces the page that has not been used for the longest period.
+
+Optimal (OPT): Replaces the page that will not be used for the longest period in the future (serves as a theoretical benchmark).
+
+Performance Metric Calculated:
+
+Total Page Faults
+
+🛠️ How to Use
+
+Prerequisites
+
+You need a C compiler, such as GCC, installed on your system.
+
+Compilation and Execution
+
+Clone the repository.
+
+Navigate to the project directory in your terminal.
+
+Compile the desired C file:
+
+gcc SRTF.c -o srtf_scheduler
+
+gcc Disk_Scheduling.c -o disk_scheduler
+
+gcc LRU_Memory.c -o lru_memory
+
+Run the executable:
+
+./srtf_scheduler
+
+./disk_scheduler
+
+./lru_memory
+`
